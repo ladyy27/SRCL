@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/07/2017 8:41:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pkg_CLASES.Estudiantes" table="estudiantes" catalog="srcl" optimistic-lock="version">
+        <id name="idEstudiante" type="java.lang.Integer">
+            <column name="id_estudiante" />
+            <generator class="identity" />
+        </id>
+        <property name="ci" type="string">
+            <column name="CI" length="11" not-null="true" />
+        </property>
+        <property name="nombres" type="string">
+            <column name="nombres" length="65535" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="65535" not-null="true" />
+        </property>
+        <property name="fechaNac" type="date">
+            <column name="fecha_nac" length="10" />
+        </property>
+        <property name="EMail" type="string">
+            <column name="e_mail" length="1024" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="8" />
+        </property>
+        <set name="matriculases" table="matriculas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_estudiante" not-null="true" />
+            </key>
+            <one-to-many class="pkg_CLASES.Matriculas" />
+        </set>
+    </class>
+</hibernate-mapping>

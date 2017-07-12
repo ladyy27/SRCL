@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/07/2017 8:41:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pkg_CLASES.Cursos" table="cursos" catalog="srcl" optimistic-lock="version">
+        <id name="idCurso" type="java.lang.Integer">
+            <column name="id_curso" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="categoriaCurso" class="pkg_CLASES.CategoriaCurso" fetch="select">
+            <column name="id_categoria" not-null="true" />
+        </many-to-one>
+        <many-to-one name="periodo" class="pkg_CLASES.Periodo" fetch="select">
+            <column name="id_periodo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tutor" class="pkg_CLASES.Tutor" fetch="select">
+            <column name="id_tutor" not-null="true" />
+        </many-to-one>
+        <property name="nombreCurso" type="string">
+            <column name="nombre_curso" length="1024" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535" />
+        </property>
+        <property name="numHoras" type="java.lang.Integer">
+            <column name="num_horas" />
+        </property>
+        <set name="matriculases" table="matriculas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_curso" not-null="true" />
+            </key>
+            <one-to-many class="pkg_CLASES.Matriculas" />
+        </set>
+    </class>
+</hibernate-mapping>

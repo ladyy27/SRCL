@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/07/2017 8:41:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pkg_CLASES.Matriculas" table="matriculas" catalog="srcl" optimistic-lock="version">
+        <id name="idMatricula" type="java.lang.Integer">
+            <column name="idMatricula" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="cursos" class="pkg_CLASES.Cursos" fetch="select">
+            <column name="id_curso" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estudiantes" class="pkg_CLASES.Estudiantes" fetch="select">
+            <column name="id_estudiante" not-null="true" />
+        </many-to-one>
+        <property name="estado" type="string">
+            <column name="estado" length="45" />
+        </property>
+        <property name="fechaMat" type="date">
+            <column name="fecha_mat" length="10" />
+        </property>
+        <set name="registroNotases" table="registro_notas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idMatricula" not-null="true" />
+            </key>
+            <one-to-many class="pkg_CLASES.RegistroNotas" />
+        </set>
+    </class>
+</hibernate-mapping>

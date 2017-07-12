@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/07/2017 8:41:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pkg_CLASES.Periodo" table="periodo" catalog="srcl" optimistic-lock="version">
+        <id name="idPeriodo" type="java.lang.Integer">
+            <column name="id_periodo" />
+            <generator class="identity" />
+        </id>
+        <property name="nombrePeriodo" type="string">
+            <column name="nombre_periodo" length="45" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="fecha_inicio" length="10" />
+        </property>
+        <property name="fechaFin" type="date">
+            <column name="fecha_fin" length="10" />
+        </property>
+        <set name="cursoses" table="cursos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_periodo" not-null="true" />
+            </key>
+            <one-to-many class="pkg_CLASES.Cursos" />
+        </set>
+    </class>
+</hibernate-mapping>
