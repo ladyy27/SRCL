@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="pkg_BL.*"%>
+<%@page import="pkg_CLASES.*"%>
+<%@page session = "true"%>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -20,21 +23,26 @@
 
         <!-- Five -->
         <section id="five" class="main style1">
+            <!-- Para hacer logout -->
             <div id="logeo">
-                <form method="post">
-                    Bievenido!
-                    <input type="submit" name="logout" value="(salir)" id="salir"></input>
-                </form>  
+                <% 
+                    HttpSession sesion= request.getSession();
+                    Tutor tutor1 = new Tutor();
+                    tutor1 = (Tutor) sesion.getAttribute("tutor");  
+
+                    if (request.getParameter("cerrar") != null) {
+                    sesion.invalidate();
+                }
+                %>
+                <label>Bienvenido, ${tutor.nombreTutor} (TUTOR) <a href="index.jsp?cerrar=true" class="label">SALIR</a> </label>   
             </div>
             <div class="container" id="dos">
                 <header class="major special">
                     <h2>SRCL</h2>
                 </header>
                 <section>						
-                    <a href="index2.php" class="icon alt fa-home fa-lg"><span class="label">Inicio</span></a>
-                    <h4>Servicios</h4>
-
-                    
+                    <a href="index.jsp" class="icon alt fa-home fa-lg"><span class="label">Inicio</span></a>
+                    <h4>Servicios</h4>      
                 </section>
 
                 <section>

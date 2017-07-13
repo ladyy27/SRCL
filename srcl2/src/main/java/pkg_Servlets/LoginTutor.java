@@ -7,11 +7,15 @@ package pkg_Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import pkg_BL.*;
+import pkg_CLASES.*;
 
 /**
  *
@@ -33,19 +37,33 @@ public class LoginTutor extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginTutor</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginTutor at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+
+        Tutor_BL tutor_bl = new Tutor_BL();
+        String usuario = request.getParameter("usuario");
+        String contrasena = request.getParameter("contrasena");
+        String mensaje= "";
+                
+        if (usuario != null && contrasena != null) {
+            Tutor tutor = new Tutor();
+            tutor = tutor_bl.consultarTutor(usuario, contrasena);
+
+            if (tutor != null) {
+                //crear la sesion, mando el objeto tutor
+                HttpSession sesion = request.getSession();
+                sesion.setAttribute("tutor", tutor);
+                response.sendRedirect("PerfilTutor.jsp");
+
+                //hacer que sea obligatorio pasar por el login para ingresar a las demas paginas
+                
+            }
+            else{
+                String mensaje1 = "";
+                request.setAttribute("mensaje1", mensaje1);
+                response.sendRedirect("index.jsp");
+            }
+
+        } else {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 

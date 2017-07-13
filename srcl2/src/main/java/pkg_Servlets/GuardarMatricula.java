@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pkg_BL.*;
-import pkg_CLASES.Cursos;
-import pkg_CLASES.Estudiantes;
+import pkg_CLASES.*;
+
 
 /**
  *

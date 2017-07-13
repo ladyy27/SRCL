@@ -32,7 +32,7 @@
             <p>La mejor inversión siempre será en conocimiento, no dejes pasar mas en tiempo, ¡Atrévete ya!</p>
             <br>
             <a href="infoCursos.jsp"> VER CURSOS DISPONIBLES</a>  
-            
+
             <ul class="actions">
                 <li><a href="#one" class="button scrolly">Más Información</a></li>
             </ul>
@@ -43,7 +43,7 @@
     <section id="one" class="main style2">
         <div class="container">
             <div class="row 150%"> 
-                              
+
                 <div class="6u 12u$(medium)">
                     <ul class="major-icons">
                         <li><span class="icon style1 major fa-child"></span></li>
@@ -58,7 +58,7 @@
                     </header>
                     <p><h3>Junior: de 12 a 16 años</h3></p>
                     <p><h3>Jovenes: de 17 a 22 años </h3></p>
-                    <p><h3>Adultos: de 23 a 50años </h3></p>
+                    <p><h3>Adultos: de 23 a 50 años </h3></p>
                     <p><h3>Tercera Edad: de 51 años en adelante</h3></p>
                 </div>
             </div>
@@ -71,21 +71,24 @@
             <header class="major">
                 <h2>Administración</h2>
             </header>
-            <p>Solo personal Autorizado?</p>
-            <form method="post" action="#">
+            <p>Solo personal Autorizado</p>
+
+            <%
+                String msg1 = String.valueOf(request.getAttribute("mensaje1"));
+            %>
+
+            <form action="LoginTutor">
                 <div class="row uniform 50% ">
                     <div class="12u$">
-                        <input type="text" name="usuario" id="demo-user" value="" placeholder="Usuario" />
+                        <input type="text" name="usuario" id="demo-user" value="" placeholder="Usuario" required/>
                     </div>
                     <div class="12u$">
-                        <input type="password" name="contrasena" id="demo-pass" value="" placeholder="Contraseña" />
+                        <input type="password" name="contrasena" id="demo-pass" value="" placeholder="Contraseña" required/>
                     </div>
                     <div class="12u$">
-                        <ul class="actions">
-                            <li><input type="submit" value="Ingresar" class="special" /></li>
-                            <li><input type="reset" value="Cancelar"/></li>
-                        </ul>
+                        <input type="submit" value="Ingresar" class="special" />
                     </div>
+                    <p>${mensaje1}</p>
                 </div>
             </form>
         </div>
