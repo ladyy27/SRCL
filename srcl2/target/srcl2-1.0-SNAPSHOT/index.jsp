@@ -24,14 +24,17 @@
     <body>
 
         <!-- Header -->
-    <section id="header">
+    <section id="header"> 
+        
         <div class="inner">
             <span class="icon major fa-mortar-board"></span>
-            <h1>Servicio de Registro de Cursos en Linea <strong></strong>, que esperas<br />
-                para emprender un nuevo reto <i class="fa fa-arrow-circle-o-right"></i></i><a href="frmNuevoEstudiante.jsp"> REGISTRATE</a>.</h1>
-            <p>La mejor inversión siempre será en conocimiento, no dejes pasar mas en tiempo, ¡Atrévete ya!</p>
+            <h1>Servicio de Registro de Cursos en Línea</h1><br>
+            <i class="fa fa-user-plus"></i><a href="frmNuevoEstudiante.jsp"> REGISTRATE </a> o  
+            <i class="fa fa-unlock-alt"></i><a href="loginEstudiante.jsp">  INICIA SESION</a>
+           
+            <p>La mejor inversión siempre será el conocimiento, no dejes pasar más en tiempo, ¡Atrévete ya!</p>
             <br>
-            <a href="infoCursos.jsp"> VER CURSOS DISPONIBLES</a>  
+            <i class="fa fa-book"></i><a href="infoCursos.jsp"> VER CURSOS DISPONIBLES</a>  
 
             <ul class="actions">
                 <li><a href="#one" class="button scrolly">Más Información</a></li>
