@@ -1,5 +1,6 @@
 todos los cursos de un tutor:
 
+//consultar lso cursos asignados a 1 tutor, recibe id_tutor
 select id_curso, nombre_curso, num_horas, nombre_categoria, nombre_periodo
 from tutor, periodo, categoria_curso, cursos
 where tutor.id_tutor =1 and 
@@ -7,6 +8,19 @@ cursos.id_tutor=tutor.id_tutor and
 periodo.id_periodo = cursos.id_periodo and
 categoria_curso.id_categoria = cursos.id_categoria
 
-SELECT * FROM cursos, matriculas, estudiantes
-WHERE cursos.id_curso = 5 AND
-cursos.id_curso = matriculas.id_curso
+Horario
+Lunes, Martes, Miercoles, Jueves 3-6 pm
+Viernes: 8-1 pm , 3pm-6pm
+
+//consultar los estudiantes de un curso, recibe de parametro: id_curso
+SELECT m.idMatricula, 
+e.id_estudiante, 
+e.nombres , 
+e.apellidos
+FROM cursos c, matriculas m, estudiantes e
+WHERE c.id_curso = 6 AND
+c.id_curso = m.id_curso AND
+m.id_estudiante = e.id_estudiante
+
+
+//consultar matricula (toda la data) por estudiante y curso

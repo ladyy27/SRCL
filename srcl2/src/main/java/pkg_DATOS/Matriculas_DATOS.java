@@ -45,5 +45,27 @@ public class Matriculas_DATOS {
                    
     }
     
-    
+    public Matriculas consultarMatricula(int idEst, int idCurso){ 
+        try {
+            CallableStatement statement = connection.prepareCall("{call consultarMatricula(?,?)}");
+            statement.setInt("_idEst", idEst );
+            statement.setInt("_idCurso", idCurso);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+                Matriculas mat = new Matriculas();
+                /*Estudiantes e= new Estudiantes();
+                e.setIdEstudiante(resultSet.getInt("id_estudiante"));
+                Cursos c = new Cursos();
+                c.setIdCurso(resultSet.getInt("id_curso"));*/
+                mat.setIdMatricula(resultSet.getInt("idMatricula"));
+                mat.setEstado(resultSet.getString("estado"));
+                mat.setFechaMat(resultSet.getDate("fecha_mat"));
+                /*mat.setEstudiantes(e);
+                mat.setCursos(c);*/
+                return mat;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }   
 }

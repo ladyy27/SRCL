@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package pkg_BL;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import pkg_DATOS.*;
@@ -17,10 +18,15 @@ import java.time.format.DateTimeFormatter;
  * @author ela
  */
 public class Matriculas_BL {
+
     Matriculas_DATOS matDATOS = new Matriculas_DATOS();
-    
-    public void crearMatricula (Estudiantes estudiante, Cursos cursos){
+
+    public void crearMatricula(Estudiantes estudiante, Cursos cursos) {
         matDATOS.crearMatricula(estudiante, cursos);
     }
-    
+
+    public Matriculas consultarMatriculaBL(int idEst, int idCurso) {
+        return matDATOS.consultarMatricula(idEst, idCurso);
+    }
+
 }
