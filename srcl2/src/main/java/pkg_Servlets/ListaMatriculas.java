@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import pkg_BL.*;
 import pkg_CLASES.*;
 
@@ -21,7 +22,7 @@ import pkg_CLASES.*;
  * @author thesis
  */
 @WebServlet(name = "CursosXTutor", urlPatterns = {"/CursosXTutor"})
-public class CursosXTutor extends HttpServlet {
+public class ListaMatriculas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,6 +37,14 @@ public class CursosXTutor extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        
+        //Cursos cur = new Cursos();
+        //String id_curso = request.getParameter("idCurso");
+        //cur.setIdCurso(Integer.parseInt(id_curso));
+        HttpSession sesion = request.getSession();
+        ArrayList<Cursos> listaCursos_Tutor = new ArrayList<Cursos>();
+        listaCursos_Tutor = (ArrayList<Cursos>) sesion.getAttribute("listaCursos_Tutor");
+        
         
         
     }

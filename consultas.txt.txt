@@ -7,6 +7,6 @@ cursos.id_tutor=tutor.id_tutor and
 periodo.id_periodo = cursos.id_periodo and
 categoria_curso.id_categoria = cursos.id_categoria
 
-You have an error in your SQL syntax; 
-check the manual that corresponds to your MariaDB 
-server version for the right syntax to use near '()' at line 1
+SELECT * FROM cursos, matriculas, estudiantes
+WHERE cursos.id_curso = 5 AND
+cursos.id_curso = matriculas.id_curso

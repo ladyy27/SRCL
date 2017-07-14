@@ -65,10 +65,10 @@
                                         String categoria = cat.getNombreCategoria();
                                         Periodo per = item.getPeriodo();
                                         String periodo = per.getNombrePeriodo();
-                                        int id = item.getIdCurso();
+                                        int idCurso = item.getIdCurso();
                                 %>
-                                <tr id=<%=id%>>
-                                    <input type="text" name="idEstudiante" hidden value="${tutor.idTutor}"/>
+                                <tr id=<%=idCurso%>>
+                                    <!--<input type="text" name="idEstudiante" hidden value="${tutor.idTutor}"/>-->
                                     <td><%=nombreCurso%></td>
                                     <td><%=horas%></td>
                                     <td><%=categoria%></td>
