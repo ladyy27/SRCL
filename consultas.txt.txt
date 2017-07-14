@@ -1,0 +1,12 @@
+todos los cursos de un tutor:
+
+select id_curso, nombre_curso, num_horas, nombre_categoria, nombre_periodo
+from tutor, periodo, categoria_curso, cursos
+where tutor.id_tutor =1 and 
+cursos.id_tutor=tutor.id_tutor and
+periodo.id_periodo = cursos.id_periodo and
+categoria_curso.id_categoria = cursos.id_categoria
+
+You have an error in your SQL syntax; 
+check the manual that corresponds to your MariaDB 
+server version for the right syntax to use near '()' at line 1

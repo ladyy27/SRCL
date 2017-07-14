@@ -34,7 +34,7 @@
         <section id="" class="main style1">
             <div class="container" id="uno">
                 <ul class="icons">
-                    <li><a href="index.jsp" class="icon alt fa-home fa-lg"><span class="label">Inicio</span></a></li>
+                    <li><a href="index.jsp" class="icon alt fa-home fa-lg"> Inicio</a></li>
                 </ul>
 
                 <header class="major special">
@@ -47,6 +47,7 @@
                 %>
 
                 <section>
+                    <i class="fa fa-unlock-alt"></i><a href="loginEstudiante.jsp">  ¡Ya soy estudiante!</a>
                     <p>${mensaje}</p>
                     <form action="CrearEstudiante">
                         <div class="row uniform 50%">

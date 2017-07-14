@@ -103,11 +103,6 @@ public class CrearEstudiante extends HttpServlet {
             listaCursos = cursoBL.cursosPorCategoriaBL(edad);
             request.setAttribute("listaCursos", listaCursos);
 
-            //curso seleccionado
-            /*String opcionCurso = request.getParameter("cursosDisponibles");
-            System.out.println("ID DEL CURSO SELECCIONADO: "+opcionCurso);
-            String mensaje1= "Matricula Resgistrada!"; */
-            //request.setAttribute("mensaje1", mensaje1);
             request.getRequestDispatcher("FrmNuevaMatricula.jsp").forward(request, response);
         } else {
             mensaje = "No se han podido recuperar los datos del estudiante";

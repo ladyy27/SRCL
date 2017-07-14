@@ -31,6 +31,10 @@ public class Estudiantes_BL {
         //eBL = estudiantesD.consultar_estudiante(cedula);
         return estudiantesD.consultar_estudiante(cedula);
     }
+    
+     public Estudiantes loginEst(String usuario,String contrasena){
+        return estudiantesD.login_estudiante(usuario, contrasena);
+    }
 
     public int calcularEdad(Estudiantes e) {
         

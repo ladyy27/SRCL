@@ -4,6 +4,7 @@
     Author     : ela
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="pkg_BL.*"%>
 <%@page import="pkg_CLASES.*"%>
@@ -25,31 +26,70 @@
         <section id="five" class="main style1">
             <!-- Para hacer logout -->
             <div id="logeo">
-                <% 
-                    HttpSession sesion= request.getSession();
+                <%
+                    HttpSession sesion = request.getSession();
                     Tutor tutor1 = new Tutor();
-                    tutor1 = (Tutor) sesion.getAttribute("tutor");  
+                    tutor1 = (Tutor) sesion.getAttribute("tutor");
+                    ArrayList<Cursos> listaCursos_Tutor = new ArrayList<Cursos>();
+                    listaCursos_Tutor = (ArrayList<Cursos>) sesion.getAttribute("listaCursos_Tutor");
 
                     if (request.getParameter("cerrar") != null) {
-                    sesion.invalidate();
-                }
+                        sesion.invalidate();
+                    }
                 %>
-                <label>Bienvenido, ${tutor.nombreTutor} (TUTOR) <a href="index.jsp?cerrar=true" class="label">SALIR</a> </label>   
+                Bienvenido, ${tutor.nombreTutor} (TUTOR)<a href="index.jsp?cerrar=true" class="label">     SALIR     </a>
             </div>
             <div class="container" id="dos">
+                <a href="index.jsp" class="icon alt fa-home fa-lg"> Inicio</a><br><br> 
                 <header class="major special">
-                    <h2>SRCL</h2>
+                    <h2>Cursos Asignados</h2>
                 </header>
                 <section>						
-                    <a href="index.jsp" class="icon alt fa-home fa-lg"><span class="label">Inicio</span></a>
-                    <h4>Servicios</h4>      
+
+                    <div class="table-wrapper">
+                        <table class="alt">
+                            <thead>
+                                <tr>
+                                    <th>Curso</th>
+                                    <th># Horas</th>
+                                    <th>Categoria</th>
+                                    <th>Periodo</th>
+                                    <th>Notas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%  for (Cursos item : listaCursos_Tutor) {
+                                        String nombreCurso = item.getNombreCurso();
+                                        int horas = item.getNumHoras();
+                                        CategoriaCurso cat = item.getCategoriaCurso();
+                                        String categoria = cat.getNombreCategoria();
+                                        Periodo per = item.getPeriodo();
+                                        String periodo = per.getNombrePeriodo();
+                                        int id = item.getIdCurso();
+                                %>
+                                <tr id=<%=id%>>
+                                    <input type="text" name="idEstudiante" hidden value="${tutor.idTutor}"/>
+                                    <td><%=nombreCurso%></td>
+                                    <td><%=horas%></td>
+                                    <td><%=categoria%></td>
+                                    <td><%=periodo%></td>
+                                    <!--<td><a href=FrmNuevoTutor.php class='button special fit small'>registrar notas</a></td>-->
+                                    <td><input type="submit" value="registrar notas" class='button special fit small'/></td>
+                                </tr>
+                            <% }
+                            %>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+
                 </section>
 
                 <section>
-                    <!-- 						<h5>Bienvenido</h5> -->
-                    <header class="major special">
-                        <h5>Sistema de Registro de Cursos en Linea</h5>
-                    </header>
+                    						
+
                 </section>
             </div>
         </section>

@@ -72,5 +72,25 @@ public class Estudiantes_DATOS {
             return null;
         }
     }
+     
+    public Estudiantes login_estudiante(String usuario, String contrasena){
+        
+        try {
+            CallableStatement statement = connection.prepareCall("{call login_estudiante(?,?)}");
+            statement.setString("_usuario", usuario);
+            statement.setString("_contrasena", contrasena);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+                Estudiantes eLogin = new Estudiantes ();
+                eLogin.setIdEstudiante(resultSet.getInt("id_estudiante"));
+                eLogin.setNombres(resultSet.getString("nombres"));
+                eLogin.setApellidos(resultSet.getString("apellidos"));
+               
+                return eLogin;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 
 }

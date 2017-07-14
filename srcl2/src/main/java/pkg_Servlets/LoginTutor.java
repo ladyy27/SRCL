@@ -41,25 +41,34 @@ public class LoginTutor extends HttpServlet {
         Tutor_BL tutor_bl = new Tutor_BL();
         String usuario = request.getParameter("usuario");
         String contrasena = request.getParameter("contrasena");
-        String mensaje= "";
-                
+        String mensaje = "";
+
         if (usuario != null && contrasena != null) {
             Tutor tutor = new Tutor();
             tutor = tutor_bl.consultarTutor(usuario, contrasena);
+            int idtutor = tutor.getIdTutor();
 
             if (tutor != null) {
                 //crear la sesion, mando el objeto tutor
                 HttpSession sesion = request.getSession();
                 sesion.setAttribute("tutor", tutor);
-                response.sendRedirect("PerfilTutor.jsp");
-
-                //hacer que sea obligatorio pasar por el login para ingresar a las demas paginas
                 
-            }
-            else{
-                String mensaje1 = "";
-                request.setAttribute("mensaje1", mensaje1);
-                response.sendRedirect("index.jsp");
+                
+
+                //Preparar lista de cursos para tutor logueado
+                Cursos_BL cursoBL = new Cursos_BL();
+                ArrayList<Cursos> listaCursos_Tutor = new ArrayList<Cursos>();
+                listaCursos_Tutor = cursoBL.cursosPorTutorBL(idtutor);
+                sesion.setAttribute("listaCursos_Tutor", listaCursos_Tutor);
+
+                response.sendRedirect("PerfilTutor.jsp");
+                //hacer que sea obligatorio pasar por el login para ingresar a las demas paginas
+
+            } else {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Usuario y/o contraseña incorrectos.');");
+                out.println("location='index.jsp';");
+                out.println("</script>");
             }
 
         } else {

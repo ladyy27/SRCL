@@ -76,5 +76,33 @@ public class Cursos_DATOS {
             return null;
         }
     }
+    
+    
+    public ArrayList<Cursos> cursosPorTutor(int idTutor) {
+        ArrayList<Cursos> listCursosPorTutor = new ArrayList<Cursos>();
+        try {
+            CallableStatement statement = connection.prepareCall("{CALL cursosXtutor(?)}");
+            statement.setInt("_idtutor", idTutor);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                CategoriaCurso cc= new CategoriaCurso();
+                cc.setNombreCategoria(resultSet.getString("nombre_categoria"));
+                Periodo p = new Periodo();
+                p.setNombrePeriodo(resultSet.getString("nombre_periodo"));
+                Cursos cursos = new Cursos();
+                cursos.setIdCurso(resultSet.getInt("id_curso"));
+                cursos.setNombreCurso(resultSet.getString("nombre_curso"));
+                cursos.setDescripcion(resultSet.getString("descripcion"));
+                cursos.setNumHoras(resultSet.getInt("num_horas"));
+                cursos.setCategoriaCurso(cc);
+                cursos.setPeriodo(p);                
+                listCursosPorTutor.add(cursos);
+            }
+            return listCursosPorTutor;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
 
 }

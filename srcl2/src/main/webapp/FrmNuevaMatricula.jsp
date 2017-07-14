@@ -45,7 +45,7 @@
             <div class="container" id="uno">
 
                 <ul class="icons">
-                    <li><a href="index.jsp" class="icon alt fa-home fa-lg"><span class="label">Inicio</span></a></li>
+                    <li><a href="index.jsp" class="icon alt fa-home fa-lg"> Inicio</a></li>
                 </ul>
 
                 <header class="major special">
@@ -60,7 +60,6 @@
 
 
                 <section>
-
                     <form action="GuardarMatricula">
                         <div class="row uniform 50%">		
                             <div class="12u$">

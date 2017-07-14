@@ -29,15 +29,15 @@
         <div class="inner">
             <span class="icon major fa-mortar-board"></span>
             <h1>Servicio de Registro de Cursos en Línea</h1><br>
-            <i class="fa fa-user-plus"></i><a href="frmNuevoEstudiante.jsp"> REGISTRATE </a> o  
-            <i class="fa fa-unlock-alt"></i><a href="loginEstudiante.jsp">  INICIA SESION</a>
+            <h3><i class="fa fa-user-plus"></i><a href="frmNuevoEstudiante.jsp"> REGISTRATE </a> o  <br></h3>
+            <h3><i class="fa fa-unlock-alt"></i><a href="loginEstudiante.jsp">  INICIA SESION</a></h3>
            
             <p>La mejor inversión siempre será el conocimiento, no dejes pasar más en tiempo, ¡Atrévete ya!</p>
             <br>
-            <i class="fa fa-book"></i><a href="infoCursos.jsp"> VER CURSOS DISPONIBLES</a>  
+            <h4><i class="fa fa-book"></i><a href="infoCursos.jsp"> VER CURSOS DISPONIBLES</a> </h4> 
 
             <ul class="actions">
-                <li><a href="#one" class="button scrolly">Más Información</a></li>
+                <li><a href="#one" class="button scrolly">Mas Información</a></li>
             </ul>
         </div>
     </section>
@@ -59,10 +59,10 @@
                     <header class="major">
                         <h2>Categorias</h2>
                     </header>
-                    <p><h3>Junior: de 12 a 16 años</h3></p>
-                    <p><h3>Jovenes: de 17 a 22 años </h3></p>
-                    <p><h3>Adultos: de 23 a 50 años </h3></p>
-                    <p><h3>Tercera Edad: de 51 años en adelante</h3></p>
+                    <p><h3>Junior: Desde 12 a 16 años</h3></p>
+                    <p><h3>Jovenes: Desde 17 a 22 años </h3></p>
+                    <p><h3>Adultos: Desde 23 a 50 años </h3></p>
+                    <p><h3>Tercera Edad: De 51 años en adelante</h3></p>
                 </div>
             </div>
         </div>       

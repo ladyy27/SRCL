@@ -7,22 +7,21 @@ package pkg_Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import pkg_BL.*;
 import pkg_CLASES.*;
 
-
 /**
  *
- * @author ela
+ * @author thesis
  */
-@WebServlet(name = "GuardarMatricula", urlPatterns = {"/GuardarMatricula"})
-public class GuardarMatricula extends HttpServlet {
+@WebServlet(name = "LoginEstudiante", urlPatterns = {"/LoginEstudiante"})
+public class LoginEstudiante extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,33 +36,32 @@ public class GuardarMatricula extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        //seleccionar curso
-        Cursos cur = new Cursos();
-        Estudiantes e = new Estudiantes();
-        Matriculas_BL matBL = new Matriculas_BL();
-        request.setAttribute("listaCursos", request.getParameter("listaCursos"));
-        
-        String id_est = request.getParameter("idEstudiante");         
-        String opcionCurso = request.getParameter("cursosDisponibles");
-        
-        cur.setIdCurso(Integer.parseInt(opcionCurso));
-        e.setIdEstudiante(Integer.parseInt(id_est));
-       
-        matBL.crearMatricula(e, cur);
-        
-        //ALERT AVISANDO QUE SE GUARDO LA MATRICULA
-        out.println("<script type=\"text/javascript\">");
-        out.println("alert('¡Matriculada Registrada!. Por favor inicia sesión.');");
-        out.println("location='index.jsp';");
-        out.println("</script>");
-        
-        //System.out.println("ID DEL CURSO SELECCIONADO: "+opcionCurso);
-        //String mensaje= "Matricula Registrada";
-        //request.setAttribute("mensaje", mensaje);
-        
-        
-        
-        request.getRequestDispatcher("MatriculaGuardada.jsp").forward(request, response);
+        Estudiantes_BL est_bl = new Estudiantes_BL();
+        String usuario = request.getParameter("usuario");
+        String contrasena = request.getParameter("contrasena");
+        String mensaje= "";
+                
+        if (usuario != null && contrasena != null) {
+            Estudiantes est = new Estudiantes();
+            est = est_bl.loginEst(usuario, contrasena);
+
+            if (est != null) {
+                //crear la sesion, mando el objeto tutor
+                HttpSession sesion = request.getSession();
+                sesion.setAttribute("est", est);
+                response.sendRedirect("PerfilEstudiante.jsp");
+                //hacer que sea obligatorio pasar por el login para ingresar a las demas paginas
+            }
+            else{
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Usuario y/o contraseña incorrectos.');");
+                out.println("location='loginEstudiante.jsp';");
+                out.println("</script>");
+            }
+
+        } else {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

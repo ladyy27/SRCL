@@ -16,13 +16,12 @@ import javax.servlet.http.HttpServletResponse;
 import pkg_BL.*;
 import pkg_CLASES.*;
 
-
 /**
  *
- * @author ela
+ * @author thesis
  */
-@WebServlet(name = "GuardarMatricula", urlPatterns = {"/GuardarMatricula"})
-public class GuardarMatricula extends HttpServlet {
+@WebServlet(name = "CursosXTutor", urlPatterns = {"/CursosXTutor"})
+public class CursosXTutor extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,33 +36,8 @@ public class GuardarMatricula extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        //seleccionar curso
-        Cursos cur = new Cursos();
-        Estudiantes e = new Estudiantes();
-        Matriculas_BL matBL = new Matriculas_BL();
-        request.setAttribute("listaCursos", request.getParameter("listaCursos"));
-        
-        String id_est = request.getParameter("idEstudiante");         
-        String opcionCurso = request.getParameter("cursosDisponibles");
-        
-        cur.setIdCurso(Integer.parseInt(opcionCurso));
-        e.setIdEstudiante(Integer.parseInt(id_est));
-       
-        matBL.crearMatricula(e, cur);
-        
-        //ALERT AVISANDO QUE SE GUARDO LA MATRICULA
-        out.println("<script type=\"text/javascript\">");
-        out.println("alert('¡Matriculada Registrada!. Por favor inicia sesión.');");
-        out.println("location='index.jsp';");
-        out.println("</script>");
-        
-        //System.out.println("ID DEL CURSO SELECCIONADO: "+opcionCurso);
-        //String mensaje= "Matricula Registrada";
-        //request.setAttribute("mensaje", mensaje);
         
         
-        
-        request.getRequestDispatcher("MatriculaGuardada.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
