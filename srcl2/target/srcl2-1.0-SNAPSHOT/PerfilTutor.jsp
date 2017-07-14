@@ -44,6 +44,36 @@
                 <header class="major special">
                     <h2>Cursos Asignados</h2>
                 </header>
+                <p>Por favor, selecciona un curso para registrar notas</p>
+                <section>
+                    <form action="RecuperarNotas">
+                        <div class="row uniform 50%">		
+                            <div class="12u$">
+                                <div class="select-wrapper">
+                                    <select name="cursosAsignados">
+                                        <%  for (Cursos item : listaCursos_Tutor) {
+                                                int idCurso = item.getIdCurso();
+                                                String nombreCurso = item.getNombreCurso();                                              
+                                        %>
+                                        <option value="<%=idCurso%>" > <%=nombreCurso%></option>
+                                        <% }
+                                        %>
+                                    </select>
+                                    <input type="text" name="idEstudiante" hidden value="${student.idEstudiante}"/>
+                                </div>
+                            </div>
+
+                            <div class="12u$">
+                                <ul class="actions">
+                                    <li><input type="submit" value="registrar notas" class="special" /></li>
+                                </ul>
+                            </div> 
+                        </div>
+                        
+                    </form> 
+                </section>
+                
+                
                 <section>						
 
                     <div class="table-wrapper">
@@ -67,23 +97,19 @@
                                         String periodo = per.getNombrePeriodo();
                                         int idCurso = item.getIdCurso();
                                 %>
-                                <tr id=<%=idCurso%>>
-                                    <!--<input type="text" name="idEstudiante" hidden value="${tutor.idTutor}"/>-->
+                                <tr id=<%=idCurso%>>                                  
                                     <td><%=nombreCurso%></td>
                                     <td><%=horas%></td>
                                     <td><%=categoria%></td>
                                     <td><%=periodo%></td>
                                     <!--<td><a href=FrmNuevoTutor.php class='button special fit small'>registrar notas</a></td>-->
-                                    <td><input type="submit" value="registrar notas" class='button special fit small'/></td>
+                                    <td><input action="RecuperarNotas" type="submit" value="registrar notas" class='button special fit small'/></td>
                                 </tr>
                             <% }
                             %>
                             </tbody>
                         </table>
                     </div>
-
-
-
 
                 </section>
 

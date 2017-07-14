@@ -20,7 +20,7 @@ import pkg_CLASES.*;
  * @author ela
  */
 @WebServlet(name = "RecuperarEstudiante", urlPatterns = {"/RecuperarEstudiante"})
-public class RecuperarEstudiante extends HttpServlet {
+public class RecuperarNotas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

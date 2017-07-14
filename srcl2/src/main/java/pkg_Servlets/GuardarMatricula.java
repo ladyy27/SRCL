@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import pkg_BL.*;
 import pkg_CLASES.*;
 
-
 /**
  *
  * @author ela
@@ -41,24 +40,31 @@ public class GuardarMatricula extends HttpServlet {
         Estudiantes e = new Estudiantes();
         Matriculas_BL matBL = new Matriculas_BL();
         RegistroNotas_BL regbl = new RegistroNotas_BL();
-        
+
         //recuperar curso
         request.setAttribute("listaCursos", request.getParameter("listaCursos"));
         //los parametros se recuperan como int asi que hay que parsearlos
-        String id_est_str = request.getParameter("idEstudiante");  
+        String id_est_str = request.getParameter("idEstudiante");
         int id_est = Integer.parseInt(id_est_str);
         String opcionCurso_str = request.getParameter("cursosDisponibles");
-        int id_curso = Integer.parseInt(opcionCurso_str); 
+        int id_curso = Integer.parseInt(opcionCurso_str);
         //poblar los objetos de curso y estudiante
         cur.setIdCurso(id_curso);
         e.setIdEstudiante(id_est);
         //crear matricula
         matBL.crearMatricula(e, cur);
         //consultar ID de matricula creado
-        Matriculas mat = matBL.consultarMatriculaBL(id_est,id_curso);
+        Matriculas mat = matBL.consultarMatriculaBL(id_est, id_curso);
         //crear registro de notas en blanco
-        regbl.crearRegistroNotasBL(mat);
-        
+        if (mat != null) {
+            regbl.crearRegistroNotasBL(mat);
+        } else {
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('No se creo el regsitro de notas.');");
+            out.println("location='index.jsp';");
+            out.println("</script>");
+        }
+
         //ALERT AVISANDO QUE SE GUARDO LA MATRICULA
         out.println("<script type=\"text/javascript\">");
         out.println("alert('¡Matriculada Registrada!. Por favor inicia sesión.');");

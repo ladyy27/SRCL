@@ -76,8 +76,7 @@ public class Cursos_DATOS {
             return null;
         }
     }
-    
-    
+ 
     public ArrayList<Cursos> cursosPorTutor(int idTutor) {
         ArrayList<Cursos> listCursosPorTutor = new ArrayList<Cursos>();
         try {

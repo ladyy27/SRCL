@@ -12,15 +12,21 @@ Horario
 Lunes, Martes, Miercoles, Jueves 3-6 pm
 Viernes: 8-1 pm , 3pm-6pm
 
-//consultar los estudiantes de un curso, recibe de parametro: id_curso
+//consultar las notas de estos estudiantes de un curso, recibe de parametro: id_curso
 SELECT m.idMatricula, 
-e.id_estudiante, 
-e.nombres , 
-e.apellidos
-FROM cursos c, matriculas m, estudiantes e
-WHERE c.id_curso = 6 AND
+e.nombres, 
+e.apellidos,
+r.idRegistro,
+r.notaTest1,
+r.notaTest2,
+r.notaFinal,
+r.estado
+FROM cursos c, matriculas m, estudiantes e, registro_notas r
+WHERE c.id_curso = 9 AND
 c.id_curso = m.id_curso AND
-m.id_estudiante = e.id_estudiante
+m.id_estudiante = e.id_estudiante AND
+r.idMatricula = m.idMatricula
 
 
 //consultar matricula (toda la data) por estudiante y curso
+
