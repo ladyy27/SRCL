@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/07/2017 8:41:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pkg_CLASES.RegistroNotas" table="registro_notas" catalog="srcl" optimistic-lock="version">
+        <id name="idRegistro" type="java.lang.Integer">
+            <column name="idRegistro" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="matriculas" class="pkg_CLASES.Matriculas" fetch="select">
+            <column name="idMatricula" not-null="true" />
+        </many-to-one>
+        <property name="notaTest1" type="java.lang.Double">
+            <column name="notaTest1" precision="22" scale="0" />
+        </property>
+        <property name="notaTest2" type="java.lang.Double">
+            <column name="notaTest2" precision="22" scale="0" />
+        </property>
+        <property name="notaFinal" type="java.lang.Double">
+            <column name="notaFinal" precision="22" scale="0" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

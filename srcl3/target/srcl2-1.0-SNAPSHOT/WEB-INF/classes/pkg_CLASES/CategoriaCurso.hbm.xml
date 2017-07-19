@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 04/07/2017 8:41:28 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pkg_CLASES.CategoriaCurso" table="categoria_curso" catalog="srcl" optimistic-lock="version">
+        <id name="idCategoria" type="java.lang.Integer">
+            <column name="id_categoria" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreCategoria" type="string">
+            <column name="nombre_categoria" length="1024" />
+        </property>
+        <property name="rangoEdadInicio" type="java.lang.Integer">
+            <column name="rango_edadInicio" />
+        </property>
+        <property name="rangoEdadFin" type="java.lang.Integer">
+            <column name="rango_edadFin" />
+        </property>
+        <set name="cursoses" table="cursos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_categoria" not-null="true" />
+            </key>
+            <one-to-many class="pkg_CLASES.Cursos" />
+        </set>
+    </class>
+</hibernate-mapping>
