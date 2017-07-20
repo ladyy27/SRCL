@@ -19,7 +19,7 @@ import pkg_CLASES.*;
  *
  * @author ela
  */
-@WebServlet(name = "RecuperarEstudiante", urlPatterns = {"/RecuperarEstudiante"})
+@WebServlet(name = "RecuperarNotas", urlPatterns = {"/RecuperarNotas"})
 public class RecuperarNotas extends HttpServlet {
 
     /**
@@ -34,7 +34,9 @@ public class RecuperarNotas extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Estudiantes e = new Estudiantes();
+        
+        
+        /*Estudiantes e = new Estudiantes();
         Estudiantes_BL eBL = new Estudiantes_BL();
         String mensaje= ""; 
         String cedulaMat = request.getParameter("cedula");
@@ -49,7 +51,7 @@ public class RecuperarNotas extends HttpServlet {
             mensaje= "No se han podido recuperar los datos del estudiante";
             request.setAttribute("mensaje", mensaje);
             request.getRequestDispatcher("FrmNuevoMatricula.jsp").forward(request, response);
-        }
+        }:/
         
         
     }

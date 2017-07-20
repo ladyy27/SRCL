@@ -35,5 +35,9 @@ public class RegistroNotas_DATOS {
         }
 
     }
+    
+    public void registroNotasByCurso(){
+        
+    }
 
 }

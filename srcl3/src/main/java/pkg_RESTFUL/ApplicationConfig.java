@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg_servicios;
+package pkg_RESTFUL;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
 /**
  *
  * @author thesis
  */
-public class EstudianteResource {
+@ApplicationPath("rest")
+public class ApplicationConfig extends Application{
     
 }

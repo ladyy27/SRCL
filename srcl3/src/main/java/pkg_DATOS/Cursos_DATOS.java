@@ -93,8 +93,8 @@ public class Cursos_DATOS {
                 cursos.setNombreCurso(resultSet.getString("nombre_curso"));
                 cursos.setDescripcion(resultSet.getString("descripcion"));
                 cursos.setNumHoras(resultSet.getInt("num_horas"));
-                cursos.setCategoriaCurso(cc);
-                cursos.setPeriodo(p);                
+                cursos.setIdCategoria(cc);
+                cursos.setIdPeriodo(p);                
                 listCursosPorTutor.add(cursos);
             }
             return listCursosPorTutor;
@@ -103,5 +103,7 @@ public class Cursos_DATOS {
             return null;
         }
     }
+    
+    
 
 }

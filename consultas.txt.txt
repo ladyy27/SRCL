@@ -30,3 +30,10 @@ r.idMatricula = m.idMatricula
 
 //consultar matricula (toda la data) por estudiante y curso
 
+
+//consultar matriculas de un curso
+SELECT e.nombres, e.apellidos, m.idMatricula ,rn.idRegistro, rn.notaTest1 ,rn.notaTest2, rn.notaFinal, rn.estado FROM cursos c, registro_notas rn, matriculas m, estudiantes e
+WHERE c.id_curso = 11 AND
+c.id_curso = m.id_curso AND
+m.idMatricula = rn.idMatricula AND
+m.id_estudiante = e.id_estudiante

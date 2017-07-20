@@ -59,7 +59,7 @@
                                         <% }
                                         %>
                                     </select>
-                                    <input type="text" name="idEstudiante" hidden value="${student.idEstudiante}"/>
+                                    
                                 </div>
                             </div>
 
@@ -91,9 +91,9 @@
                                 <%  for (Cursos item : listaCursos_Tutor) {
                                         String nombreCurso = item.getNombreCurso();
                                         int horas = item.getNumHoras();
-                                        CategoriaCurso cat = item.getCategoriaCurso();
+                                        CategoriaCurso cat = item.getIdCategoria();
                                         String categoria = cat.getNombreCategoria();
-                                        Periodo per = item.getPeriodo();
+                                        Periodo per = item.getIdPeriodo();
                                         String periodo = per.getNombrePeriodo();
                                         int idCurso = item.getIdCurso();
                                 %>
