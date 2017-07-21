@@ -5,6 +5,7 @@
  */
 package pkg_SESSIONS;
 
+import javax.ejb.Singleton;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,7 +15,8 @@ import pkg_CLASES.Cursos;
  *
  * @author thesis
  */
-@Stateless
+//@Stateless
+@Singleton
 public class CursosFacade extends AbstractFacade<Cursos> {
 
     @PersistenceContext(unitName = "com.tesis_srcl3_war_1.0-SNAPSHOTPU")

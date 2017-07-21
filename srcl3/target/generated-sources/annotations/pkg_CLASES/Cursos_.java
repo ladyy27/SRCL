@@ -9,7 +9,7 @@ import pkg_CLASES.Matriculas;
 import pkg_CLASES.Periodo;
 import pkg_CLASES.Tutor;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-07-20T00:24:47")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-07-21T16:04:23")
 @StaticMetamodel(Cursos.class)
 public class Cursos_ { 
 

@@ -1,0 +1,57 @@
+/* AUTOMATICALLY GENERATED ON Fri Jul 21 17:16:00 COT 2017*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "RegistroNotasFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "PeriodoFacade", "edit,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "TutorFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "PeriodoFacade", "create,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CategoriaCursoFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "CursosFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "EstudiantesFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "RegistroNotasFacade", "create,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "PeriodoFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "PeriodoFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "EstudiantesFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "TutorFacade", "edit,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CursosFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "PeriodoFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "RegistroNotasFacade", "edit,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "TutorFacade", "remove,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CategoriaCursoFacade", "edit,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CursosFacade", "edit,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "RegistroNotasFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "EstudiantesFacade", "remove,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CursosFacade", "create,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "EstudiantesFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "CategoriaCursoFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "EstudiantesFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "CursosFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "CursosFacade", "remove,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CategoriaCursoFacade", "remove,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "TutorFacade", "create,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "PeriodoFacade", "remove,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "RegistroNotasFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "TutorFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "TutorFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "EstudiantesFacade", "create,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "EstudiantesFacade", "edit,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "TutorFacade", "findAll,Local,";
+  permission javax.security.jacc.EJBMethodPermission "CategoriaCursoFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "CategoriaCursoFacade", "count,Local,";
+  permission javax.security.jacc.EJBMethodPermission "RegistroNotasFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "PeriodoFacade", "findRange,Local,int[]";
+  permission javax.security.jacc.EJBMethodPermission "RegistroNotasFacade", "remove,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CursosFacade", "find,Local,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "CategoriaCursoFacade", "create,Local,java.lang.Object";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "RegistroNotasFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "CursosFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "CategoriaCursoFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "EstudiantesFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "TutorFacade", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "PeriodoFacade", "**";
+};
+

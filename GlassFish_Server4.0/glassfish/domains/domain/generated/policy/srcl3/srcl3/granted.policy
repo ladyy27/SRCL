@@ -1,0 +1,23 @@
+/* AUTOMATICALLY GENERATED ON Fri Jul 21 17:16:01 COT 2017*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.WebUserDataPermission "/";
+  permission javax.security.jacc.WebResourcePermission "/";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.WebRoleRefPermission "GuardarMatricula", "**";
+  permission javax.security.jacc.WebRoleRefPermission "jsp", "**";
+  permission javax.security.jacc.WebRoleRefPermission "", "**";
+  permission javax.security.jacc.WebRoleRefPermission "Faces Servlet", "**";
+  permission javax.security.jacc.WebRoleRefPermission "LoginTutor", "**";
+  permission javax.security.jacc.WebRoleRefPermission "pkg_RESTFUL.ApplicationConfig", "**";
+  permission javax.security.jacc.WebRoleRefPermission "CursosXTutor", "**";
+  permission javax.security.jacc.WebRoleRefPermission "CrearEstudiante", "**";
+  permission javax.security.jacc.WebRoleRefPermission "Cursos_SERVLET", "**";
+  permission javax.security.jacc.WebRoleRefPermission "RecuperarNotas", "**";
+  permission javax.security.jacc.WebRoleRefPermission "default", "**";
+  permission javax.security.jacc.WebRoleRefPermission "LoginEstudiante", "**";
+};
+

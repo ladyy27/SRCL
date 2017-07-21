@@ -22,7 +22,8 @@ public class conexionBD {
             try {
                 Driver driver = new com.mysql.jdbc.Driver();
                 DriverManager.registerDriver(driver);
-                conection = DriverManager.getConnection("jdbc:mysql://localhost:3306/srcl", "root", "");
+                //conection = DriverManager.getConnection("jdbc:mysql://localhost:3306/srcl", "root", "root");
+                conection = DriverManager.getConnection("jdbc:mysql://localhost:3306/srcl", "root", "root");
             } catch (SQLException ex) {
                 ex.printStackTrace();
                 Logger.getLogger(conexionBD.class.getName()).log(Level.SEVERE, null, ex);
