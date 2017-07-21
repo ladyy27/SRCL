@@ -37,6 +37,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Matriculas.findAll", query = "SELECT m FROM Matriculas m")
     , @NamedQuery(name = "Matriculas.findByIdMatricula", query = "SELECT m FROM Matriculas m WHERE m.idMatricula = :idMatricula")
+    //, @NamedQuery(name = "Matriculas.findByIdCurso", query = "SELECT m FROM Matriculas m WHERE m.id_curso = :idCurso")
     , @NamedQuery(name = "Matriculas.findByEstado", query = "SELECT m FROM Matriculas m WHERE m.estado = :estado")
     , @NamedQuery(name = "Matriculas.findByFechaMat", query = "SELECT m FROM Matriculas m WHERE m.fechaMat = :fechaMat")})
 public class Matriculas implements Serializable {

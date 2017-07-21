@@ -5,7 +5,6 @@
  */
 package pkg_RESTFUL;
 
-
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
@@ -18,24 +17,25 @@ import pkg_SESSIONS.*;
 
 /**
  *
- * @author thesis
+ * @author ela
  */
-@Path("cursos")
-public class MatriculasByCurso {
+@Path("matriculass")
+public class Matriculas_Curso {
     @EJB
-    private CursosFacade ejbCursosFacade ;
+    private MatriculasFacade ejbMatriculasFacade ;
     
     @GET
     //@Produces({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_XML})
-    public List<Cursos>allCursos(){
-        return ejbCursosFacade.findAll();
+    public List<Matriculas>allMatriculas(){
+        return ejbMatriculasFacade.findAll();
     }
     
     @GET
     @Produces({MediaType.APPLICATION_XML})
     @Path("id")
-    public Cursos cursoById(@PathParam("id") Integer id){
-        return ejbCursosFacade.find(id);
+    public Matriculas matriculaById(@PathParam("id") Integer id){
+        return ejbMatriculasFacade.find(id);
     }
+    
 }
