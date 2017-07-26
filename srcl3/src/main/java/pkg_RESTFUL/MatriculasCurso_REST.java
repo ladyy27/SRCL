@@ -25,14 +25,14 @@ public class MatriculasCurso_REST {
 
     
 
-    @EJB
+    //@EJB
     private MatriculasFacade mf = MatriculasFacade.getMatricula();
     //private MatriculasFacade ejbMatriculasFacade;
 
     @GET
     @Produces({MediaType.APPLICATION_XML})
-    @Path("curso")
-    public ArrayList<Matriculas> matriculasPorCurso(@PathParam("curso") Integer curso){
+    @Path("{idcurso}")
+    public ArrayList<Matriculas> matriculasPorCurso(@PathParam("idcurso") Integer curso){
         return mf.matriculasByCurso(curso);
     }
     
@@ -42,14 +42,5 @@ public class MatriculasCurso_REST {
         return mf.findAll();
         //return ejbMatriculasFacade.findAll();
     }
-    
-    
-
-    /*@GET
-    @Produces({MediaType.APPLICATION_XML})
-    @Path("id")
-    public Matriculas matriculaById(@PathParam("id") Integer id) {
-        return mf.find(id);
-    }*/
 
 }

@@ -34,17 +34,23 @@ public class MatriculasFacade extends AbstractFacade<Matriculas> {
         return em;
     }
 
-    //Implementando Singleton
+    //Singleton
     //1. Variable estatica privada
-    private static final MatriculasFacade mf = new MatriculasFacade();
-
+    private static MatriculasFacade mf ;
+    
     //2. Constructor privado
     private MatriculasFacade() {
         super(Matriculas.class);
     }
-
+    
     //3.metodo de acceso publico estatico
     public static MatriculasFacade getMatricula() {
+        if (mf == null){
+            mf = new MatriculasFacade(); 
+        }
+        else{
+            System.out.println("Ya existe un objeto de tipo MatriculaFacade");
+        }
         return mf;
     }
 

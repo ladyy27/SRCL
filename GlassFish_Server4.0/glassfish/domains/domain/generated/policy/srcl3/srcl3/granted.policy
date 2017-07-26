@@ -1,4 +1,4 @@
-/* AUTOMATICALLY GENERATED ON Fri Jul 21 17:16:01 COT 2017*/
+/* AUTOMATICALLY GENERATED ON Wed Jul 26 16:41:14 COT 2017*/
 /* DO NOT EDIT */
 
 grant {
@@ -15,8 +15,8 @@ grant      principal * * {
   permission javax.security.jacc.WebRoleRefPermission "pkg_RESTFUL.ApplicationConfig", "**";
   permission javax.security.jacc.WebRoleRefPermission "CursosXTutor", "**";
   permission javax.security.jacc.WebRoleRefPermission "CrearEstudiante", "**";
-  permission javax.security.jacc.WebRoleRefPermission "Cursos_SERVLET", "**";
   permission javax.security.jacc.WebRoleRefPermission "RecuperarNotas", "**";
+  permission javax.security.jacc.WebRoleRefPermission "Cursos_SERVLET", "**";
   permission javax.security.jacc.WebRoleRefPermission "default", "**";
   permission javax.security.jacc.WebRoleRefPermission "LoginEstudiante", "**";
 };

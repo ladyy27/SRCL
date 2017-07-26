@@ -35,8 +35,8 @@ public class Cursos_REST {
     }
     
     @GET
-    @Produces({MediaType.APPLICATION_XML})
-    @Path("id")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Path("{id}")
     public Cursos cursoById(@PathParam("id") Integer id){
         return ejbCursosFacade.find(id);
     }

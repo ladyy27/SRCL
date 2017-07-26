@@ -627,10 +627,12 @@
   <applications>
     <application context-root="/srcl3" object-type="user" name="srcl3" directory-deployed="true" location="file:/C:/Users/thesis/Documents/NetBeansProjects/SRCL/srcl3/target/srcl3-1.0-SNAPSHOT/">
       <property name="archiveType" value="war"></property>
+      <property name="org.glassfish.ejb.startup.keepstate" value="true"></property>
       <property name="appLocation" value="file:/C:/Users/thesis/Documents/NetBeansProjects/SRCL/srcl3/target/srcl3-1.0-SNAPSHOT/"></property>
-      <property name="org.glassfish.ejb.container.application_unique_id" value="98348259028369408"></property>
+      <property name="org.glassfish.ejb.container.application_unique_id" value="98376378740178944"></property>
       <property name="org.glassfish.persistence.app_name_property" value="srcl3"></property>
       <property name="defaultAppName" value="srcl3-1.0-SNAPSHOT"></property>
+      <property name="keepSessions" value="true"></property>
       <module name="srcl3">
         <engine sniffer="ejb"></engine>
         <engine sniffer="security"></engine>
