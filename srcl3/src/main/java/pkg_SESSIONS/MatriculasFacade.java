@@ -15,7 +15,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import pkg_CLASES.*;
-import pkg_DATOS.conexionBD;
+import pkg_DATOS.*;
 
 /**
  *
@@ -24,6 +24,7 @@ import pkg_DATOS.conexionBD;
 //@Stateless
 public class MatriculasFacade extends AbstractFacade<Matriculas> {
     //se puede llamar al jdb de la conexcion??
+
     private Connection connection = new conexionBD().getConection();
 
     @PersistenceContext(unitName = "com.tesis_srcl3_war_1.0-SNAPSHOTPU")
@@ -33,12 +34,15 @@ public class MatriculasFacade extends AbstractFacade<Matriculas> {
     protected EntityManager getEntityManager() {
         return em;
     }
-
-    //Implementando Singleton
+    //Singleton
     //1. Variable estatica privada
     private static final MatriculasFacade mf = new MatriculasFacade();
 
     //2. Constructor privado
+    /*private MatriculasFacade() {
+       
+    }*/
+
     private MatriculasFacade() {
         super(Matriculas.class);
     }

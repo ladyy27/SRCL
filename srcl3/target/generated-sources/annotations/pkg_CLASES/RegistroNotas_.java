@@ -5,7 +5,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import pkg_CLASES.Matriculas;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-07-21T16:04:23")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2017-07-24T14:56:45")
 @StaticMetamodel(RegistroNotas.class)
 public class RegistroNotas_ { 
 
