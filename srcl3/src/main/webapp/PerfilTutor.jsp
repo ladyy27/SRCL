@@ -17,8 +17,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
         <link rel="stylesheet" href="assets/css/principal.css" />
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        
+        
+        
     </head>
     <body>
 
@@ -30,6 +36,7 @@
                     HttpSession sesion = request.getSession();
                     Tutor tutor1 = new Tutor();
                     tutor1 = (Tutor) sesion.getAttribute("tutor");
+                    String uri = String.valueOf(sesion.getAttribute("URI"));
                     ArrayList<Cursos> listaCursos_Tutor = new ArrayList<Cursos>();
                     listaCursos_Tutor = (ArrayList<Cursos>) sesion.getAttribute("listaCursos_Tutor");
 
@@ -44,79 +51,57 @@
                 <header class="major special">
                     <h2>Cursos Asignados</h2>
                 </header>
-                <p>Por favor, selecciona un curso para registrar notas</p>
+                <p>Estimado tutor, estos son sus cursos asignados. Por favor, seleccione un curso para consultar:</p>
                 <section>
-                    <form action="RecuperarNotas">
+
+
+                    <form action="RecuperarMatriculas">
                         <div class="row uniform 50%">		
                             <div class="12u$">
                                 <div class="select-wrapper">
                                     <select name="cursosAsignados">
                                         <%  for (Cursos item : listaCursos_Tutor) {
                                                 int idCurso = item.getIdCurso();
-                                                String nombreCurso = item.getNombreCurso();                                              
+                                                String nombreCurso = item.getNombreCurso();
                                         %>
                                         <option value="<%=idCurso%>" > <%=nombreCurso%></option>
                                         <% }
                                         %>
                                     </select>
-                                    
+
                                 </div>
                             </div>
 
                             <div class="12u$">
                                 <ul class="actions">
-                                    <li><input type="submit" value="registrar notas" class="special" /></li>
+                                    <li><input  type="submit" value="consultar" class="special" /></li>
                                 </ul>
                             </div> 
                         </div>
-                        
-                    </form> 
-                </section>
-                
-                
-                <section>						
 
-                    <div class="table-wrapper">
-                        <table class="alt">
+                    </form> 
+
+                    <!-- EJEMPLO DATA TABLE--> 
+                    <div>
+                        <h1>${URI}</h1>
+                    </div>
+                    <div class="table-wrapper" >
+                        <table class="alt" id="matriculas-tabla" cellpadding='0' cellspacing='0' border='0'>
                             <thead>
                                 <tr>
-                                    <th>Curso</th>
-                                    <th># Horas</th>
-                                    <th>Categoria</th>
-                                    <th>Periodo</th>
-                                    <th>Notas</th>
+                                    <th>ID Matricula</th>
+                                    <th>Nombres</th>
+                                    <th>Estado</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <%  for (Cursos item : listaCursos_Tutor) {
-                                        String nombreCurso = item.getNombreCurso();
-                                        int horas = item.getNumHoras();
-                                        CategoriaCurso cat = item.getIdCategoria();
-                                        String categoria = cat.getNombreCategoria();
-                                        Periodo per = item.getIdPeriodo();
-                                        String periodo = per.getNombrePeriodo();
-                                        int idCurso = item.getIdCurso();
-                                %>
-                                <tr id=<%=idCurso%>>                                  
-                                    <td><%=nombreCurso%></td>
-                                    <td><%=horas%></td>
-                                    <td><%=categoria%></td>
-                                    <td><%=periodo%></td>
-                                    <!--<td><a href=FrmNuevoTutor.php class='button special fit small'>registrar notas</a></td>-->
-                                    <td><input action="RecuperarNotas" type="submit" value="registrar notas" class='button special fit small'/></td>
-                                </tr>
-                            <% }
-                            %>
+                                
                             </tbody>
                         </table>
                     </div>
 
                 </section>
 
-                <section>
-                    						
-
-                </section>
             </div>
         </section>
 
@@ -136,12 +121,35 @@
         </section>
 
         <!-- Scripts -->
+        <!-- <script type="text/javascript">
+            $("#getMatriculas").bind("click", function () {
+                alert('El boton funciona.');
+                location='PerfilTutor.jsp';
+            });
+        </script> -->
+        <script type="text/javascript">
+            $.get("${URI}", function (data) {
+                $.each(data, function (i, mat) {
+                    $("#matriculas-tabla").append(
+                            
+                            "<tr id=" +mat.idMatricula +"><td>" + mat.idMatricula + "</td>" +
+                            "<td>" + mat.idEstudiante.apellidos+" " + mat.idEstudiante.nombres+ "</td>"+
+                            "<td>" + mat.estado+ "</td></tr>");
+                });
+            });
+        </script>
+        
+        
+        
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/jquery.scrolly.min.js"></script>
         <script src="assets/js/skel.min.js"></script>
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-        <script src="assets/js/main.js"></script>
+        
+
+
+      
 
     </body>
 </html>

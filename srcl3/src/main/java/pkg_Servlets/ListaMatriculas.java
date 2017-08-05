@@ -38,6 +38,8 @@ public class ListaMatriculas extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
+        
+        
         //Cursos cur = new Cursos();
         //String id_curso = request.getParameter("idCurso");
         //cur.setIdCurso(Integer.parseInt(id_curso));

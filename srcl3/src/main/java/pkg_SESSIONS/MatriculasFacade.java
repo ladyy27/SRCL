@@ -62,6 +62,8 @@ public class MatriculasFacade extends AbstractFacade<Matriculas> {
             while (resultSet.next()) {
                 Estudiantes est = new Estudiantes();
                 est.setIdEstudiante(resultSet.getInt("id_estudiante"));
+                est.setNombres(resultSet.getString("nombres"));
+                est.setApellidos(resultSet.getString("apellidos"));
                 Cursos cur = new Cursos();
                 cur.setIdCurso(resultSet.getInt("id_curso"));
                 Matriculas mat = new Matriculas();

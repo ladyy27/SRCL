@@ -7,11 +7,13 @@ package pkg_Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import pkg_BL.*;
 import pkg_CLASES.*;
 
@@ -19,8 +21,8 @@ import pkg_CLASES.*;
  *
  * @author ela
  */
-@WebServlet(name = "RecuperarNotas", urlPatterns = {"/RecuperarNotas"})
-public class RecuperarNotas extends HttpServlet {
+@WebServlet(name = "RecuperarMatriculas", urlPatterns = {"/RecuperarMatriculas"})
+public class RecuperarMatriculas extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,26 +36,20 @@ public class RecuperarNotas extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        HttpSession sesion = request.getSession();
+
+        String opcionCursoTutor_str = request.getParameter("cursosAsignados");
+        //Mandar a buscar
+        String URI = "http://localhost:8081/matriculas/" + opcionCursoTutor_str;
+        System.out.println("uri del servicio: "+URI);
+        sesion.setAttribute("URI", URI);
         
-        
-        /*Estudiantes e = new Estudiantes();
-        Estudiantes_BL eBL = new Estudiantes_BL();
-        String mensaje= ""; 
-        String cedulaMat = request.getParameter("cedula");
-        
-        if (cedulaMat!=null && !cedulaMat.isEmpty()) {
-           
-            e = eBL.consultar_estudiante(cedulaMat);
-            request.setAttribute("estudiante", e); 
-            request.getRequestDispatcher("FrmNuevoMatricula.jsp").forward(request, response);
-        }
-        else{
-            mensaje= "No se han podido recuperar los datos del estudiante";
-            request.setAttribute("mensaje", mensaje);
-            request.getRequestDispatcher("FrmNuevoMatricula.jsp").forward(request, response);
-        }*/
-        
-        
+        out.println("<script type=\"text/javascript\">");
+                
+                out.println("location='PerfilTutor.jsp';");
+                out.println("</script>");
+        request.getRequestDispatcher("PerfilTutor.jsp").forward(request, response);
+
     }
 
     //<editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
